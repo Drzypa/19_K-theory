@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{Khomology}
+\pmcreated{2013-03-22 12:57:46}
+\pmmodified{2013-03-22 12:57:46}
+\pmowner{mhale}{572}
+\pmmodifier{mhale}{572}
+\pmtitle{K-homology}
+\pmrecord{6}{33330}
+\pmprivacy{1}
+\pmauthor{mhale}{572}
+\pmtype{Topic}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{19K33}
+\pmrelated{FredholmModule}
+\pmrelated{KTheory}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+\newcommand*{\hilbert}[1][H]{\mathord{\mathcal{#1}}}
+
+% define commands here
+\begin{document}
+K-homology is a homology theory on the category of compact Hausdorff spaces.
+It classifies the elliptic pseudo-differential operators acting on the
+vector bundles over a space.
+In terms of $C^*$-algebras, it classifies the Fredholm modules over an algebra.
+
+An operator homotopy between two Fredholm modules $(\hilbert,F_0,\Gamma)$ and $(\hilbert,F_1,\Gamma)$
+is a norm continuous path of Fredholm modules, $t \mapsto (\hilbert,F_t,\Gamma)$, $t \in [0,1]$.
+Two Fredholm modules are then equivalent if they are related by unitary transformations or operator homotopies.
+The $K^0(A)$ group is the abelian group of equivalence classes
+of even Fredholm modules over A.
+The $K^1(A)$ group is the abelian group of equivalence classes
+of odd Fredholm modules over A.
+Addition is given by direct summation of Fredholm modules,
+and the inverse of $(\hilbert, F, \Gamma)$ is $(\hilbert, -F, -\Gamma)$.
+
+\begin{thebibliography}{10}
+\bibitem{Inassaridze}
+N.~Higson and J.~Roe, {\em Analytic K-homology}.
+\newblock Oxford University Press, 2000.
+\end{thebibliography}
+%%%%%
+%%%%%
+\end{document}

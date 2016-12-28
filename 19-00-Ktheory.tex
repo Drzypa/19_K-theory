@@ -1,0 +1,179 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{Ktheory}
+\pmcreated{2013-03-22 12:58:06}
+\pmmodified{2013-03-22 12:58:06}
+\pmowner{mhale}{572}
+\pmmodifier{mhale}{572}
+\pmtitle{K-theory}
+\pmrecord{17}{33338}
+\pmprivacy{1}
+\pmauthor{mhale}{572}
+\pmtype{Topic}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{19-00}
+\pmsynonym{Topological K-theory}{Ktheory}
+\pmrelated{KHomology}
+\pmrelated{AlgebraicKTheory}
+\pmrelated{GrothendieckGroup}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% my maths package
+
+\newcommand*{\Nset}{\mathbb{N}}
+\newcommand*{\Zset}{\mathbb{Z}}
+\newcommand*{\Qset}{\mathbb{Q}}
+\newcommand*{\Rset}{\mathbb{R}}
+\newcommand*{\Cset}{\mathbb{C}}
+\newcommand*{\Hset}{\mathbb{H}}
+\newcommand*{\Oset}{\mathbb{O}}
+\newcommand*{\Bset}{\mathbb{B}}
+\newcommand*{\Kset}{\mathbb{K}}
+\newcommand*{\Sset}{\mathbb{S}}
+\newcommand*{\Tset}{\mathbb{T}}
+\newcommand*{\GLgrp}{\mathrm{GL}}
+\newcommand*{\SLgrp}{\mathrm{SL}}
+\newcommand*{\Ogrp}{\mathrm{O}}
+\newcommand*{\SOgrp}{\mathrm{SO}}
+\newcommand*{\Ugrp}{\mathrm{U}}
+\newcommand*{\SUgrp}{\mathrm{SU}}
+\newcommand*{\e}{\mathop{\mathrm{e}}\nolimits}
+\newcommand*{\im}{\mathord{\mathrm{i}}}
+\newcommand*{\identity}{\mathord{\mathrm{1\!\!\!\:I}}}
+\newcommand*{\tr}{\mathop{\mathrm{tr}}}
+\newcommand*{\Tr}{\mathop{\mathrm{Tr}}}
+\renewcommand*{\d}{\mathrm{d}}
+\newcommand*{\deriv}[2]{\frac{\d #1}{\d #2}}
+\newcommand*{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand*{\fderiv}[2]{\frac{\delta #1}{\delta #2}}
+
+% my noncommutative geometry package
+
+\newcommand*{\algebra}[1][A]{\mathord{\mathcal{#1}}}
+\newcommand*{\hilbert}[1][H]{\mathord{\mathcal{#1}}}
+\newcommand*{\hilbmod}[1][E]{\mathord{\mathcal{#1}}}
+\newcommand*{\Matrix}[2]{\mathord{\mathrm{M}_{#1}(#2)}}
+\newcommand*{\dixmier}{\mathop{\mathrm{Tr}_\omega}}
+\newcommand*{\Res}{\mathop{\mathrm{Res}}}
+\newcommand*{\Wres}{\mathop{\mathrm{Wres}}}
+\newcommand*{\Aut}{\mathop{\mathrm{Aut}}\nolimits}
+\newcommand*{\Inn}{\mathop{\mathrm{Inn}}\nolimits}
+\newcommand*{\Out}{\mathop{\mathrm{Out}}\nolimits}
+\newcommand*{\Diff}{\mathop{\mathrm{Diff}}\nolimits}
+\newcommand*{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+\newcommand*{\Coker}{\mathop{\mathrm{Coker}}\nolimits}
+\newcommand*{\Img}{\mathop{\mathrm{Im}}\nolimits}
+\newcommand*{\End}{\mathop{\mathrm{End}}\nolimits}
+\newcommand*{\spin}{\mathop{\mathrm{spin}}\nolimits}
+\newcommand*{\Ind}{\mathop{\mathrm{Ind}}\nolimits}
+\newcommand*{\KK}{\mathit{KK}}
+\newcommand*{\HH}{\mathit{HH}}
+\newcommand*{\HC}{\mathit{HC}}
+\newcommand*{\ch}{\mathop{\mathrm{ch}}\nolimits}
+
+% my category theory package
+
+\newcommand*{\mathcat}[1]{\mathord{\mathbf{#1}}}
+\newcommand*{\id}{\mathrm{id}}
+\newcommand*{\op}{\mathrm{op}}
+\newcommand*{\boxprod}{\mathbin{\square}}
+
+% my environments
+
+\newtheoremstyle{inlinedefn}{}{0pt}{}{}{\bfseries}{.}{0.5em}{}
+\theoremstyle{inlinedefn}
+\newtheorem{definition}{Definition}
+
+\newtheoremstyle{break}{\baselineskip}{\baselineskip}{\itshape}{}{\bfseries}{}{\newline}{}
+\theoremstyle{break}
+\newtheorem{example}{Example}
+
+% misc commands
+
+\newcommand*{\defn}[1]{\textbf{#1}}
+\begin{document}
+Topological K-theory is a generalised cohomology theory on the category
+of compact Hausdorff spaces.
+It classifies the vector bundles over a space $X$ up to stable equivalences.
+Equivalently, via the Serre-Swan theorem, it classifies the finitely generated projective modules over the $C^*$-algebra $C(X)$.
+
+Let $A$ be a unital $C^*$-algebra over $\Cset$ and denote by $\Matrix{\infty}{A}$ the algebraic direct limit of matrix algebras $\Matrix{n}{A}$ under the embeddings
+$\Matrix{n}{A} \to \Matrix{n+1}{A} : a \mapsto \left(\begin{array}{cc} a & 0 \\ 0 & 0 \end{array}\right)$.
+Identify the completion of $\Matrix{\infty}{A}$ with the stable algebra $A\otimes\Kset$ (where $\Kset$ is the compact operators on $l_2(\Nset)$),
+which we will continue to denote by $\Matrix{\infty}{A}$.
+The $K_0(A)$ group is the Grothendieck group (abelian group of formal differences) of the homotopy classes of the projections in $\Matrix{\infty}{A}$.
+Two projections $p$ and $q$ are homotopic if there exists a norm continuous path of projections from $p$ to $q$.
+Let $p \in \Matrix{m}{A}$ and $q \in \Matrix{n}{A}$ be two projections.
+The sum of their homotopy classes $[p]$ and $[q]$ is the homotopy class of their direct sum:
+$[p]+[q] = [p \oplus q]$ where $p \oplus q = \mathrm{diag}(p,q) \in \Matrix{m+n}{A}$.
+Alternatively, one can consider equivalence classes of projections up to unitary transformations.
+Unitary equivalence coincides with homotopy equivalence in $\Matrix{\infty}{A}$ (or $\Matrix{n}{A}$ for $n$ large enough).
+
+Denote by $\Ugrp_\infty(A)$ the direct limit of unitary groups $\Ugrp_n(A)$ under the embeddings
+$\Ugrp_n(A) \to \Ugrp_{n+1}(A) : u \mapsto \left(\begin{array}{cc} u & 0 \\ 0 & 1 \end{array}\right)$.
+Give $\Ugrp_\infty(A)$ the direct limit topology, i.e.\
+a subset $U$ of $\Ugrp_\infty(A)$ is open if and only if
+$U \cap \Ugrp_n(A)$ is an open subset of $\Ugrp_n(A)$, for all $n$.
+The $K_1(A)$ group is the Grothendieck group (abelian group of formal differences) of the homotopy classes of the unitaries in $\Ugrp_\infty(A)$.
+Two unitaries $u$ and $v$ are homotopic if there exists a norm continuous path of unitaries from $u$ to $v$.
+Let $u \in \Ugrp_m(A)$ and $v \in \Ugrp_n(A)$ be two unitaries.
+The sum of their homotopy classes $[u]$ and $[v]$ is the homotopy class of their direct sum:
+$[u]+[v] = [u \oplus v]$ where $u \oplus v = \mathrm{diag}(u,v) \in \Ugrp_{m+n}(A)$.
+Equivalently, one can work with invertibles in $\GLgrp_\infty(A)$
+(an invertible $g$ is connected to the unitary $u = g|g|^{-1}$ via the homotopy $t \to g|g|^{-t}$).
+
+Higher K-groups can be defined through repeated suspensions,
+\begin{equation}
+K_n(A) = K_0(S^n A).
+\end{equation}
+But, the Bott periodicity theorem means that
+\begin{equation}
+K_1(SA) \cong K_0(A).
+\end{equation}
+
+The main properties of $K_i$ are:
+\begin{eqnarray}
+K_i(A \oplus B) & = & K_i(A) \oplus K_i(B), \\
+K_i(\Matrix{n}{A}) & = & K_i(A) \quad\mbox{(Morita invariance)}, \\
+K_i(A \otimes \Kset) & = & K_i(A) \quad\mbox{(stability)}, \\
+K_{i+2}(A) & = & K_i(A) \quad\mbox{(Bott periodicity)}.
+\end{eqnarray}
+
+There are three flavours of topological K-theory to handle the cases
+of $A$ being complex (over $\Cset$), real (over $\Rset$) or Real
+(with a given real structure).
+\begin{eqnarray}
+K_i(C(X,\Cset)) & = & \mathit{KU}^{-i}(X) \quad\mbox{(complex/unitary)}, \\
+K_i(C(X,\Rset)) & = & \mathit{KO}^{-i}(X) \quad\mbox{(real/orthogonal)}, \\
+\mathit{KR}_i(C(X),J) & = & \mathit{KR}^{-i}(X,J) \quad\mbox{(Real)}.
+\end{eqnarray}
+
+Real K-theory has a Bott period of 8, rather than 2.
+
+\begin{thebibliography}{10}
+\bibitem{Wegge-Olsen}
+N.~E. Wegge-Olsen, {\em K-theory and $C^*$-algebras}.
+\newblock Oxford science publications. Oxford University Press, 1993.
+
+\bibitem{Blackadar}
+B.~Blackadar, {\em K-Theory for Operator Algebras}.
+\newblock Cambridge University Press, 2nd~ed., 1998.
+
+\bibitem{Larsen}
+M.~R{\o}rdam, F.~Larsen and N.~J.~Laustsen, {\em An Introduction to K-Theory for $C^*$-Algebras}.
+\newblock Cambridge University Press, 2000.
+\end{thebibliography}
+%%%%%
+%%%%%
+\end{document}

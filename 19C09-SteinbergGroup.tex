@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{SteinbergGroup}
+\pmcreated{2013-03-22 16:44:38}
+\pmmodified{2013-03-22 16:44:38}
+\pmowner{dublisk}{96}
+\pmmodifier{dublisk}{96}
+\pmtitle{Steinberg group}
+\pmrecord{4}{38968}
+\pmprivacy{1}
+\pmauthor{dublisk}{96}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{19C09}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic} 
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+
+\begin{document}
+Given an associative ring $R$ with identity, the Steinberg group $St(R)$ describes the minimal amount of relations between elementary matrices in $R$.
+
+For $n \geq 3$, define $St_n(R)$ to be the free abelian group on symbols $x_{ij}(r)$ for $i,j$ distinct integers between $1$ and $n$, and $r \in R$, subject to the following relations:
+
+$$x_{ij}(r)x_{ij}(s) = x_{ij}(r+s)$$
+
+\begin{equation*}
+[x_{ij},x_{kl}] =
+\begin{cases} 1 & \text{if $j \neq k$ and $i \neq l$} \\
+x_{il}(rs) & \text{if $j = k$ and $i \neq l$} \\
+x_{kj}(-sr) & \text{if $j \neq k$ and $i = l.$}
+\end{cases}
+\end{equation*}
+
+Note that if $e_{ij}(r)$ denotes the elementary matrix with one along the diagonal, and $r$ in the $(i,j)$ entry, then the $e_{ij}(r)$ also satisfy the above relations, giving a well defined morphism $St_n(R) \to E_n(R)$, where the latter is the group of elementary matrices.
+
+Taking a colimit over $n$ gives the Steinberg group $St(R)$. The importance of the Steinberg group is that the kernel of the map $St(R) \to E(R)$ is the second algebraic $K$-group of the ring $R$, $K_2(R)$. This also coincides with the kernel of the Steinberg group. One can also show that the Steinberg group is the universal central extension of the group $E(R)$.
+%%%%%
+%%%%%
+\end{document}

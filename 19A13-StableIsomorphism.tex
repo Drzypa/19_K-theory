@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{StableIsomorphism}
+\pmcreated{2013-03-22 15:00:00}
+\pmmodified{2013-03-22 15:00:00}
+\pmowner{CWoo}{3771}
+\pmmodifier{CWoo}{3771}
+\pmtitle{stable isomorphism}
+\pmrecord{4}{36707}
+\pmprivacy{1}
+\pmauthor{CWoo}{3771}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{19A13}
+\pmrelated{AlgebraicKTheory}
+\pmdefines{stably isomorphic}
+\pmdefines{stably free}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb,amscd}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+\begin{document}
+Let $R$ be a ring with unity 1.  Two left $R$-modules $M$ and $N$
+are said to be \emph{stably isomorphic} if there exists a finitely
+generated free $R$-module $R^n$ ($n\geq1$) such that $$M\oplus
+R^n\cong N\oplus R^n.$$  A left $R$-module is said to be
+\emph{stably free} if it is stably isomorphic to a finitely
+generated free $R$-module.  In other words, $M$ is stably free if
+$$M\oplus R^m\cong R^n$$ for some positive integers $m,n$.
+
+\textbf{Remark} In the Grothendieck group $K_0(R)$ of a ring $R$
+with 1, two finitely generated projective module representatives $M$
+and $N$ such that $[M]=[N]\in K_0(R)$ iff they are stably isomorphic
+to each other.  In particular, $[M]$ is the zero element in $K_0(R)$
+iff it is stably free.
+%%%%%
+%%%%%
+\end{document}

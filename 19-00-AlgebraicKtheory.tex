@@ -1,0 +1,184 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{AlgebraicKtheory}
+\pmcreated{2013-03-22 13:31:32}
+\pmmodified{2013-03-22 13:31:32}
+\pmowner{mhale}{572}
+\pmmodifier{mhale}{572}
+\pmtitle{Algebraic K-theory}
+\pmrecord{10}{34117}
+\pmprivacy{1}
+\pmauthor{mhale}{572}
+\pmtype{Topic}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{19-00}
+\pmclassification{msc}{18F25}
+\pmrelated{KTheory}
+\pmrelated{GrothendieckGroup}
+\pmrelated{StableIsomorphism}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% my maths package
+
+\newcommand*{\Nset}{\mathbb{N}}
+\newcommand*{\Zset}{\mathbb{Z}}
+\newcommand*{\Qset}{\mathbb{Q}}
+\newcommand*{\Rset}{\mathbb{R}}
+\newcommand*{\Cset}{\mathbb{C}}
+\newcommand*{\Hset}{\mathbb{H}}
+\newcommand*{\Oset}{\mathbb{O}}
+\newcommand*{\Bset}{\mathbb{B}}
+\newcommand*{\Kset}{\mathbb{K}}
+\newcommand*{\Sset}{\mathbb{S}}
+\newcommand*{\Tset}{\mathbb{T}}
+\newcommand*{\GLgrp}{\mathrm{GL}}
+\newcommand*{\Egrp}{\mathrm{E}}
+\newcommand*{\SLgrp}{\mathrm{SL}}
+\newcommand*{\Ogrp}{\mathrm{O}}
+\newcommand*{\SOgrp}{\mathrm{SO}}
+\newcommand*{\Ugrp}{\mathrm{U}}
+\newcommand*{\SUgrp}{\mathrm{SU}}
+\newcommand*{\e}{\mathop{\mathrm{e}}\nolimits}
+\newcommand*{\im}{\mathord{\mathrm{i}}}
+\newcommand*{\identity}{\mathord{\mathrm{1\!\!\!\:I}}}
+\newcommand*{\tr}{\mathop{\mathrm{tr}}}
+\newcommand*{\Tr}{\mathop{\mathrm{Tr}}}
+\renewcommand*{\d}{\mathrm{d}}
+\newcommand*{\deriv}[2]{\frac{\d #1}{\d #2}}
+\newcommand*{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand*{\fderiv}[2]{\frac{\delta #1}{\delta #2}}
+
+% my noncommutative geometry package
+
+\newcommand*{\algebra}[1][A]{\mathord{\mathcal{#1}}}
+\newcommand*{\hilbert}[1][H]{\mathord{\mathcal{#1}}}
+\newcommand*{\hilbmod}[1][E]{\mathord{\mathcal{#1}}}
+\newcommand*{\Matrix}[2]{\mathord{\mathrm{M}_{#1}(#2)}}
+\newcommand*{\dixmier}{\mathop{\mathrm{Tr}_\omega}}
+\newcommand*{\Res}{\mathop{\mathrm{Res}}}
+\newcommand*{\Wres}{\mathop{\mathrm{Wres}}}
+\newcommand*{\Aut}{\mathop{\mathrm{Aut}}\nolimits}
+\newcommand*{\Inn}{\mathop{\mathrm{Inn}}\nolimits}
+\newcommand*{\Out}{\mathop{\mathrm{Out}}\nolimits}
+\newcommand*{\Diff}{\mathop{\mathrm{Diff}}\nolimits}
+\newcommand*{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+\newcommand*{\Coker}{\mathop{\mathrm{Coker}}\nolimits}
+\newcommand*{\Img}{\mathop{\mathrm{Im}}\nolimits}
+\newcommand*{\End}{\mathop{\mathrm{End}}\nolimits}
+\newcommand*{\spin}{\mathop{\mathrm{spin}}\nolimits}
+\newcommand*{\Ind}{\mathop{\mathrm{Ind}}\nolimits}
+\newcommand*{\KK}{\mathit{KK}}
+\newcommand*{\HH}{\mathit{HH}}
+\newcommand*{\HC}{\mathit{HC}}
+\newcommand*{\ch}{\mathop{\mathrm{ch}}\nolimits}
+
+% my category theory package
+
+\newcommand*{\mathcat}[1]{\mathord{\mathbf{#1}}}
+\newcommand*{\id}{\mathrm{id}}
+\newcommand*{\op}{\mathrm{op}}
+\newcommand*{\boxprod}{\mathbin{\square}}
+
+% my environments
+
+\newtheoremstyle{inlinedefn}{}{0pt}{}{}{\bfseries}{.}{0.5em}{}
+\theoremstyle{inlinedefn}
+\newtheorem{definition}{Definition}
+
+\newtheoremstyle{break}{\baselineskip}{\baselineskip}{\itshape}{}{\bfseries}{}{\newline}{}
+\theoremstyle{break}
+\newtheorem{example}{Example}
+
+% misc commands
+
+\newcommand*{\defn}[1]{\textbf{#1}}
+\begin{document}
+Algebraic K-theory is a series of functors on the category of rings.
+Broadly speaking, it classifies ring invariants, i.e.\ ring properties that are Morita invariant.
+
+\textbf{The functor $K_0$}
+
+Let $R$ be a ring and denote by $\Matrix{\infty}{R}$ the algebraic direct limit of matrix algebras $\Matrix{n}{R}$ under the embeddings
+$\Matrix{n}{R} \to \Matrix{n+1}{R} : a \mapsto \left(\begin{array}{cc} a & 0 \\ 0 & 0 \end{array}\right)$.
+The zeroth K-group of $R$, $K_0(R)$, is the Grothendieck group (abelian group of formal differences) of idempotents in $\Matrix{\infty}{R}$ up to similarity transformations.
+Let $p \in \Matrix{m}{R}$ and $q \in \Matrix{n}{R}$ be two idempotents.
+The sum of their equivalence classes $[p]$ and $[q]$ is the equivalence class of their direct sum:
+$[p]+[q] = [p \oplus q]$ where $p \oplus q = \mathrm{diag}(p,q) \in \Matrix{m+n}{R}$.
+Equivalently, one can work with finitely generated projective modules over $R$.
+
+\textbf{The functor $K_1$}
+
+Denote by $\GLgrp_\infty(R)$ the direct limit of general linear groups $\GLgrp_n(R)$ under the embeddings
+$\GLgrp_n(R) \to \GLgrp_{n+1}(R) : g \mapsto \left(\begin{array}{cc} g & 0 \\ 0 & 1 \end{array}\right)$.
+Give $\GLgrp_\infty(R)$ the direct limit topology, i.e.\
+a subset $U$ of $\GLgrp_\infty(R)$ is open if and only if
+$U \cap \GLgrp_n(R)$ is an open subset of $\GLgrp_n(R)$, for all $n$.
+The first K-group of $R$, $K_1(R)$, is the abelianisation of $\GLgrp_\infty(R)$, i.e.\
+\[
+K_1(R) = \GLgrp_\infty(R)/[\GLgrp_\infty(R),\GLgrp_\infty(R)].
+\]
+Note that this is the same as $K_1(R) = H_1(\GLgrp_\infty(R), \Zset)$,
+the first group homology group (with integer coefficients).
+
+\textbf{The functor $K_2$}
+
+Let $\Egrp_n(R)$ be the elementary subgroup of $\GLgrp_n(R)$.
+That is, the group generated by the elementary $n\times n$ matrices $e_{ij}(r)$, $r\in R$,
+where $e_{ij}(r)$ is the matrix with ones on the diagonals, the value $r$ in row $i$, column $j$
+and zeros elsewhere.
+Denote by $\Egrp_\infty(R)$ the direct limit of the $\Egrp_n(R)$ using the construction above (note $\Egrp_\infty(R)$ is a subgroup of $\GLgrp_\infty(R)$).
+The second K-group of $R$, $K_2(R)$, is the second group homology group (with integer coefficients) of $\Egrp_\infty(R)$,
+\[
+K_2(R) = H_2(\Egrp_\infty(R), \Zset).
+\]
+
+\textbf{Higher K-functors}
+
+Higher K-groups are defined using the Quillen plus construction,
+\begin{equation}
+K^{\mathrm{alg}}_n(R) = \pi_n(B\GLgrp_\infty(R)^+),
+\end{equation}
+where $B\GLgrp_\infty(R)$ is the classifying space of $\GLgrp_\infty(R)$.
+
+Rough sketch of suspension:
+\begin{equation}
+\Sigma R = \Sigma\Zset \otimes_\Zset R
+\end{equation}
+where $\Sigma\Zset = C\Zset/J\Zset$.
+The cone, $C\Zset$, is the set of infinite matrices with integral coefficients
+that have a finite number of non-trivial elements on each row and column.
+The ideal $J\Zset$ consists of those matrices that have only finitely many
+non-trivial coefficients.
+\begin{equation}
+K_i(R) \cong K_{i+1}(\Sigma R)
+\end{equation}
+
+
+Algebraic K-theory has a product structure,
+\begin{equation}
+K_i(R) \otimes K_j(S) \to K_{i+j}(R \otimes S).
+\end{equation}
+
+\begin{thebibliography}{10}
+\bibitem{Inassaridze}
+H. Inassaridze, {\em Algebraic K-theory}.
+\newblock Kluwer Academic Publishers, 1994.
+
+\bibitem{Loday}
+Jean-Louis Loday, {\em Cyclic Homology}.
+\newblock Springer-Verlag, 1992.
+\end{thebibliography}
+%%%%%
+%%%%%
+\end{document}
